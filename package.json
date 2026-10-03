@@ -1,0 +1,23 @@
+{
+  "name": "library-project",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:client": "vite",
+    "dev:server": "node --watch --env-file=atlas-credentials.env server/index.js",
+    "build": "vite build",
+    "start": "node --env-file=atlas-credentials.env server/index.js",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "prettier": "^3.9.9",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongodb": "^7.7.0"
+  }
+}
